@@ -1,0 +1,2 @@
+# LoToG
+NAACL 2025
