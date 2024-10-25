@@ -173,7 +173,7 @@ def main():
         print('total training time:%s s' % (T2 - T1))
         print("End:Current system time:", datetime.datetime.now())
 
-        ckpt = opt.load_ckpt
+        ckpt = ckpt
         T3 = time.process_time()
         acc = framework.eval(model, N, K, Q, opt.test_iter, ckpt=ckpt)
         T4 = time.process_time()
