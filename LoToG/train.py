@@ -75,7 +75,7 @@ def main():
                         help='sgd / adam / adamw')
     parser.add_argument('--hidden_size', default=768, type=int,
                         help='hidden size')
-    parser.add_argument('--load_ckpt', default=None,#'checkpoint-new/simple_HCRP-bert-train_wiki-val_wiki-10-1.pth.tar',#'checkpoint-new/91_83_simple_HCRP_1_1-bert-train_wiki-val_wiki-10-1.pth.tar', #'checkpoint-new/simple_HCRP-bert-train_wiki-val_wiki-10-1.pth.tar',  #'checkpoint-new/simple_HCRP_1_1-bert-train_wiki-val_wiki-10-1.pth.tar',               #'checkpoint-new/···'
+    parser.add_argument('--load_ckpt', default=None,          #'checkpoint-new/···'
                         help='load ckpt')
     parser.add_argument('--save_ckpt', default=None,
                         help='save ckpt')
@@ -83,6 +83,8 @@ def main():
                         help='only test')
     parser.add_argument('--test_online', default=False,
                         help='generate the result for submitting')
+    parser.add_argument('--only_eval', default=False,
+                        help='only eval')
     parser.add_argument('--pretrain_ckpt', default='bert-model',   #bert-base-uncased
                         help='bert / roberta pre-trained checkpoint')
     parser.add_argument('--seed', default=40, type=int,
@@ -198,12 +200,13 @@ def main():
             filename = f'./TestResultFile/fewrel1_{N}-{K}_result.json'
         with open(filename, 'w') as outfile:
             json.dump(result, outfile)
-    ckpt = opt.load_ckpt
-    T3 = time.process_time()
-    acc = framework.eval(model, N, K, Q, opt.test_iter, ckpt=ckpt)
-    T4 = time.process_time()
-    print('total evaluation time:%s s' % (T4 - T3))
-    print("RESULT: %.2f" % (acc * 100))
+    elif opt.eval:
+        ckpt = opt.load_ckpt
+        T3 = time.process_time()
+        acc = framework.eval(model, N, K, Q, opt.test_iter, ckpt=ckpt)
+        T4 = time.process_time()
+        print('total evaluation time:%s s' % (T4 - T3))
+        print("RESULT: %.2f" % (acc * 100))
 
 
 
