@@ -82,7 +82,7 @@ python train.py \
     --load_ckpt "checkpoint-new/my.pth.tar"
 ```
 **Cited**
-
+```bash
 @inproceedings{sun-chen-2025-enhancing,
     title = "Enhancing the Prototype Network with Local-to-Global Optimization for Few-Shot Relation Extraction",
     author = "Sun, Hui  and
@@ -100,7 +100,7 @@ python train.py \
     ISBN = "979-8-89176-195-7",
     abstract = "Few-Shot Relation Extraction (FSRE) aims to achieve high classification performance by training relation classification models with a small amount of labeled data. Prototypical networks serve as a straightforward and efficient method for optimizing model performance by combining similarity evaluation and contrastive learning. However, directly integrating these methods can introduce unpredictable noise, such as information redundancy, which hinders classification performance and negatively affects embedding space learning. The technique presented in this paper applies Local-To-Global optimization to enhance prototypical networks in few-shot relation extraction. Specifically, this paper develops a local optimization strategy that indirectly optimizes the prototypes by optimizing the other information contained within the prototypes. It considers relation prototypes as global anchors and incorporates the techniques introduced in this paper, such as information alignment, local contrastive learning, and a local adaptive focal loss function, to address the issues of information redundancy. This approach enables the model to learn a unified and effective embedding space. We conduct extensive experiments on the FewRel 1.0 and FewRel 2.0 datasets to validate the effectiveness of the proposed model."
 }
-
+```
 
 
 
